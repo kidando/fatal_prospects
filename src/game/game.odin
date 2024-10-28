@@ -2,40 +2,32 @@ package game
 
 import rl "../../raylib"
 
-Rect :: rl.Rectangle
-Vec2 :: [2]f32
-Vec2i :: [2]i32
 
-GameState :: struct {
-	player_pos: Vec2,
+draw :: proc() {
+	_screen_height := f32(rl.GetScreenHeight())
+	camera.zoom = _screen_height / WORLD_SIZE.y
+	camera.offset = {f32(rl.GetScreenWidth() / 2), _screen_height / 2}
+	rl.BeginDrawing()
+	rl.ClearBackground(rl.BLACK)
+	rl.BeginMode2D(camera)
+	game_draw()
+	rl.EndMode2D()
+	game_draw_gui()
+	rl.EndDrawing()
 }
 
-g_state: ^GameState
-
 init :: proc() {
-	g_state^ = GameState {
-		player_pos = {100, 200},
-	}
+	// Create
 }
 
 update :: proc() {
-	dt := rl.GetFrameTime()
-	if rl.IsKeyDown(.S) do g_state.player_pos.y += 300 * dt
-	if rl.IsKeyDown(.W) do g_state.player_pos.y -= 300 * dt
-	if rl.IsKeyDown(.D) do g_state.player_pos.x += 300 * dt
-	if rl.IsKeyDown(.A) do g_state.player_pos.x -= 300 * dt
+	// Input and Update
 }
 
-draw :: proc() {
-	rl.BeginDrawing()
-	rl.ClearBackground(rl.BLACK)
+game_draw::proc(){
+	// Draw inside camera
+}
 
-	rect := Rect {
-		g_state.player_pos.x,
-		g_state.player_pos.y,
-		100, 100,
-	}
-	rl.DrawRectangleRec(rect, rl.GREEN)
-
-	rl.EndDrawing()
+game_draw_gui::proc(){
+	// Draw after camera (GUI)
 }
