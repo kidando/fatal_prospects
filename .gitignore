@@ -9,3 +9,4 @@ wasm_build/
 game.dll
 game.lib
 raylib.dll
+aseprite
