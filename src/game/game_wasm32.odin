@@ -20,7 +20,7 @@ game_init :: proc "c" (game_memory: rawptr) {
 	context.logger = create_wasm_logger()
 
 	g_state = (^GameState)(game_memory)
-	init()
+	create()
 }
 
 @(export)
