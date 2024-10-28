@@ -22,7 +22,7 @@ extern void game_frame();
 #define MEGABYTE
 
 int main(void) {
-  InitWindow(1280, 720, "SDun.exe");
+  InitWindow(768, 720, "Fatal Prospects");
   char *game_state = (char *)malloc(Megabyte * 64);
   game_init(game_state);
 
