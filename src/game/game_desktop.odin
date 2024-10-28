@@ -7,7 +7,7 @@ import rl "../../raylib"
 game_init :: proc() {
 	g_state = new(GameState)
 
-	init()
+	create()
 
 	game_hot_reloaded(g_state)
 }
