@@ -1,0 +1,13 @@
+{
+  "name": "fatal_prospects",
+  "version": "1.0.0",
+  "description": "A Template for using Raylib on Desktop, and WASM using Emscripten",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "build_wasm.bat && cd wasm_build && python -m http.server",
+    "reload": "build_wasm.bat"
+  },
+  "author": "Leon Oscar Kidando",
+  "license": "ISC"
+}
