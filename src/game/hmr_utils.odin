@@ -1,5 +1,5 @@
-//+private
-//+build windows, linux, darwin
+#+private
+#+build windows, linux, darwin
 package game
 
 @(export)

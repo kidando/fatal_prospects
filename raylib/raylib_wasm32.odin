@@ -1,4 +1,4 @@
-//+build wasm32
+#+build wasm32
 package raylib
 
 import "core:c"

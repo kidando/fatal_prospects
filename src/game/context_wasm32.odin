@@ -1,4 +1,4 @@
-//+build wasm32
+#+build wasm32
 package game
 
 import "base:runtime"
