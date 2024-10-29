@@ -29,21 +29,34 @@ create :: proc() {
 	// Create
 	tex_tileset = rl.LoadTexture("../../assets/images/tex_tileset.png")
 
+	if DEBUG_MODE{
+		debug_create()
+	}
+
 	obj_player_create()
 }
 
 update :: proc() {
 	// Input and Update
+	if DEBUG_MODE{
+		debug_update()
+	}
 	obj_player_update()
 }
 
 game_draw::proc(){
 	// Draw inside camera
+	if DEBUG_MODE{
+		debug_draw()
+	}
 	obj_player_draw()
 	
 }
 
 game_draw_gui::proc(){
 	// Draw after camera (GUI)
+	if DEBUG_MODE{
+		debug_draw_gui()
+	}
 	obj_player_draw_gui()
 }
