@@ -16,8 +16,8 @@ AnimatedSprite::struct{
 	frame_duration: f32,
 	current_frame:int,
 	frame_timer: f32,
-	collider_rect: rl.Rectangle, // x and y => offset, width and height => size
-	state:AnimatedSprite
+	state: AnimationState,
+	collider_rect: rl.Rectangle // x and y => offset, width and height => size
 }
 
 
