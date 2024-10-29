@@ -32,7 +32,7 @@ create :: proc() {
 	if DEBUG_MODE{
 		debug_create()
 	}
-
+	level_main_create()
 	obj_player_create()
 }
 
@@ -41,22 +41,28 @@ update :: proc() {
 	if DEBUG_MODE{
 		debug_update()
 	}
+	level_main_update()
 	obj_player_update()
 }
 
 game_draw::proc(){
 	// Draw inside camera
+	level_main_draw()
+	obj_player_draw()
+
+
 	if DEBUG_MODE{
 		debug_draw()
 	}
-	obj_player_draw()
 	
 }
 
 game_draw_gui::proc(){
 	// Draw after camera (GUI)
+	level_main_draw_gui()
+	obj_player_draw_gui()
+
 	if DEBUG_MODE{
 		debug_draw_gui()
 	}
-	obj_player_draw_gui()
 }
