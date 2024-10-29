@@ -30,7 +30,7 @@ anim_player_shooter_idle := AnimatedSprite {
 	origin         = {16, 32},
 	total_frames   = 4,
 	frame_duration = 0.08,
-	collider_rect  = {0, 0, 32, 32},
+	collider_rect  = {6, 30, 12, 30},
 	state          = .IDLE,
 }
 anim_player_shooter_run := AnimatedSprite {
@@ -38,7 +38,7 @@ anim_player_shooter_run := AnimatedSprite {
 	origin         = {16, 32},
 	total_frames   = 8,
 	frame_duration = 0.07,
-	collider_rect  = {0, 0, 32, 32},
+	collider_rect  = {6, 30, 12, 30},
 	state          = .RUN,
 }
 anim_player_shooter_die := AnimatedSprite {
@@ -46,7 +46,7 @@ anim_player_shooter_die := AnimatedSprite {
 	origin         = {16, 32},
 	total_frames   = 12,
 	frame_duration = 0.1,
-	collider_rect  = {0, 0, 32, 32},
+	collider_rect  = {6, 30, 12, 30},
 	state          = .DIE,
 }
 
@@ -55,7 +55,7 @@ anim_player_miner_idle := AnimatedSprite {
 	origin         = {16, 32},
 	total_frames   = 4,
 	frame_duration = 0.08,
-	collider_rect  = {0, 0, 32, 32},
+	collider_rect  = {6, 30, 12, 30},
 	state          = .IDLE,
 }
 anim_player_miner_run := AnimatedSprite {
@@ -63,7 +63,7 @@ anim_player_miner_run := AnimatedSprite {
 	origin         = {16, 32},
 	total_frames   = 8,
 	frame_duration = 0.07,
-	collider_rect  = {0, 0, 32, 32},
+	collider_rect  = {6, 30, 12, 30},
 	state          = .RUN,
 }
 anim_player_miner_die := AnimatedSprite {
@@ -71,7 +71,7 @@ anim_player_miner_die := AnimatedSprite {
 	origin         = {16, 32},
 	total_frames   = 12,
 	frame_duration = 0.1,
-	collider_rect  = {0, 0, 32, 32},
+	collider_rect  = {6, 30, 12, 30},
 	state          = .DIE,
 }
 
@@ -154,6 +154,9 @@ obj_player_draw :: proc() {
 	for _player in players {
 		if _player.is_spawned {
 			draw_animated_sprite(_player.current_sprite, _player.position, _player.is_flipped)
+			if DEBUG_MODE && debug_show_colliders && _player.is_active{
+				rl.DrawPixel(i32(_player.position.x), i32(_player.position.y), rl.BLUE)
+			}
 		}
 	}
 
