@@ -28,18 +28,22 @@ draw :: proc() {
 create :: proc() {
 	// Create
 	tex_tileset = rl.LoadTexture("../../assets/images/tex_tileset.png")
+
+	obj_player_create()
 }
 
 update :: proc() {
 	// Input and Update
+	obj_player_update()
 }
 
 game_draw::proc(){
 	// Draw inside camera
-	rl.DrawTexture(tex_tileset,0,0,rl.WHITE)
+	obj_player_draw()
 	
 }
 
 game_draw_gui::proc(){
 	// Draw after camera (GUI)
+	obj_player_draw_gui()
 }
