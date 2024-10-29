@@ -9,6 +9,7 @@ AnimationState::enum{
 	RUN,
 	DIE
 }
+
 // STRUCTS
 AnimatedSprite::struct{
 	source_rect:rl.Rectangle,
