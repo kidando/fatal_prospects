@@ -113,6 +113,25 @@ obj_player_update :: proc() {
 				}
 				player_velocity = rl.Vector2Normalize(player_velocity)
 
+				if rl.Vector2Length(player_velocity) != 0{
+					if _player.current_sprite.state != .RUN {
+						if _player.type == .SHOOTER{
+							_player.current_sprite = anim_player_shooter_run
+						}else{
+							_player.current_sprite = anim_player_miner_run
+						}
+					}
+
+				}else{
+					if _player.current_sprite.state != .IDLE{
+						if _player.type == .SHOOTER{
+							_player.current_sprite = anim_player_shooter_idle
+						}else{
+							_player.current_sprite = anim_player_miner_idle
+						}
+					}
+				}
+
 				_player.position += player_velocity * _player.move_speed * dt
 			}
 		}
