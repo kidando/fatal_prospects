@@ -14,14 +14,19 @@ update_animated_sprite::proc(_sprite:^AnimatedSprite){
 	}
 }
 
-draw_animated_sprite::proc(_sprite:AnimatedSprite, _position:rl.Vector2, _rotation:f32 = 0, _tint:rl.Color = rl.WHITE){
+draw_animated_sprite::proc(_sprite:AnimatedSprite, _position:rl.Vector2, _is_flipped:bool = false, _rotation:f32 = 0, _tint:rl.Color = rl.WHITE){
+
+	_flip_factor :f32 = 1
+	if _is_flipped {
+		_flip_factor = -1
+	}
 
 	rl.DrawTexturePro(
 		tex_tileset,
 		{
 			_sprite.source_rect.x + (f32(_sprite.current_frame)*_sprite.source_rect.width),
 			_sprite.source_rect.y,
-			_sprite.source_rect.width,
+			_sprite.source_rect.width * _flip_factor,
 			_sprite.source_rect.height
 		},
 		{_position.x, _position.y, _sprite.source_rect.width,_sprite.source_rect.height},
