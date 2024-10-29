@@ -79,6 +79,7 @@ anim_player_current: AnimatedSprite
 current_active_player_index: int = 0
 is_player_dead: bool = false
 
+
 // FUNCTIONS
 obj_player_create :: proc() {
 	players = {}
@@ -111,6 +112,7 @@ obj_player_update :: proc() {
 				}else if rl.IsKeyDown(.S) {
 					player_velocity.y = 1
 				}
+
 				player_velocity = rl.Vector2Normalize(player_velocity)
 
 				if rl.Vector2Length(player_velocity) != 0{
@@ -121,7 +123,6 @@ obj_player_update :: proc() {
 							_player.current_sprite = anim_player_miner_run
 						}
 					}
-
 				}else{
 					if _player.current_sprite.state != .IDLE{
 						if _player.type == .SHOOTER{
@@ -133,6 +134,8 @@ obj_player_update :: proc() {
 				}
 
 				_player.position += player_velocity * _player.move_speed * dt
+				camera.target = _player.position
+
 			}
 		}
 	}
