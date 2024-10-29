@@ -18,7 +18,12 @@ draw_animated_sprite::proc(_sprite:AnimatedSprite, _position:rl.Vector2, _rotati
 
 	rl.DrawTexturePro(
 		tex_tileset,
-		_sprite.source_rect,
+		{
+			_sprite.source_rect.x + (f32(_sprite.current_frame)*_sprite.source_rect.width),
+			_sprite.source_rect.y,
+			_sprite.source_rect.width,
+			_sprite.source_rect.height
+		},
 		{_position.x, _position.y, _sprite.source_rect.width,_sprite.source_rect.height},
 		{_sprite.origin.x, _sprite.origin.y},
 		_rotation,
