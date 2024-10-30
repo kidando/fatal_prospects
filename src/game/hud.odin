@@ -16,10 +16,12 @@ hud_draw_gui::proc(){
 		hud_lvl_bar_outter_width,24,
 		{32,32,32,255}
 	)
+
+	_progress_bar := f32(hud_lvl_bar_outter_width-4)*f32(xp)/f32(xp_max)
 	rl.DrawRectangle(
 		i32(hud_lvl_bar_outter_buffer/2)+2,
 		i32(WINDOW_SIZE.y-72)+2,
-		hud_lvl_bar_outter_width-256,20,
+		i32(_progress_bar),20,
 		{246,205,38,255}
 	)
 

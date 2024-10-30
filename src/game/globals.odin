@@ -36,5 +36,12 @@ camera:rl.Camera2D
 tex_tileset:rl.Texture2D
 fnt_main:rl.Font
 level:i32
-xp:i32 = 10
+xp:i32 = 0
 xp_max:i32 = 100
+xp_total:i32 = 0
+
+time_sec:i32 = 0
+time_min:i32 = 15
+time_timer:f32
+time_timer_duration:f32 = 1.0
+kills:i32 = 0
