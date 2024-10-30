@@ -9,7 +9,6 @@ AnimationState::enum{
 	RUN,
 	DIE
 }
-
 // STRUCTS
 AnimatedSprite::struct{
 	source_rect:rl.Rectangle,
@@ -26,6 +25,16 @@ AnimatedSprite::struct{
 WINDOW_SIZE:rl.Vector2:{1280, 720}
 WORLD_SIZE:rl.Vector2:{640,360}
 
+C_YELLOW:rl.Color:{246, 205, 38, 255}
+C_BLACK:rl.Color:{13, 23, 32, 255}
+C_DARK_BROWN:rl.Color:{86, 50, 38, 255}
+C_LIGHT_BROWN:rl.Color:{187, 127, 87, 255}
+C_DARK_GREY:rl.Color:{57, 57, 57, 255}
+
 // VARIABLES
 camera:rl.Camera2D
 tex_tileset:rl.Texture2D
+fnt_main:rl.Font
+level:i32
+xp:i32
+xp_max:i32
