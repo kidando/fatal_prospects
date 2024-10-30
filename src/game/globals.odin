@@ -36,5 +36,5 @@ camera:rl.Camera2D
 tex_tileset:rl.Texture2D
 fnt_main:rl.Font
 level:i32
-xp:i32
-xp_max:i32
+xp:i32 = 10
+xp_max:i32 = 100
