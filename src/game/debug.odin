@@ -6,7 +6,7 @@ import rl "../../raylib"
 DEBUG_MODE::true
 DEBUG_COLLIDER_OPACITY::100
 // VARIABLES
-debug_show_colliders:bool = true
+debug_show_colliders:bool = false
 
 debug_create::proc(){
 
