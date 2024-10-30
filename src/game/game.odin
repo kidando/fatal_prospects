@@ -30,7 +30,7 @@ create :: proc() {
 	tex_tileset = rl.LoadTexture("../../assets/images/tex_tileset.png")
 	fnt_main = rl.LoadFont("../../assets/images/fnt_romulus.png")
 
-	if DEBUG_MODE{
+	if DEBUG_MODE {
 		debug_create()
 	}
 	level_main_create()
@@ -40,35 +40,61 @@ create :: proc() {
 
 update :: proc() {
 	// Input and Update
-	if DEBUG_MODE{
+	if DEBUG_MODE {
 		debug_update()
 	}
 	level_main_update()
 	obj_player_update()
 	cursor_update()
+
+
+	if time_min > 0 {
+		time_timer += rl.GetFrameTime()
+		if time_timer >= time_timer_duration {
+			time_timer = 0
+			time_sec -= 1
+			if time_sec < 0 {
+				time_min -= 1
+				time_sec = 59
+			}
+		}
+	} else {
+		if time_sec > 0 {
+			time_timer += rl.GetFrameTime()
+			if time_timer >= time_timer_duration {
+				time_timer = 0
+				time_sec -= 1
+				if time_sec < 0 {
+					time_min -= 1
+					time_sec = 59
+				}
+			}
+		}
+	}
+
 }
 
-game_draw::proc(){
+game_draw :: proc() {
 	// Draw inside camera
 	level_main_draw()
 	obj_player_draw()
 
 
-	if DEBUG_MODE{
+	if DEBUG_MODE {
 		debug_draw()
 	}
 	cursor_draw()
-	
+
 }
 
-game_draw_gui::proc(){
+game_draw_gui :: proc() {
 	// Draw after camera (GUI)
 	level_main_draw_gui()
 	obj_player_draw_gui()
 
 	hud_draw_gui()
 
-	if DEBUG_MODE{
+	if DEBUG_MODE {
 		debug_draw_gui()
 	}
 	cursor_draw_gui()
