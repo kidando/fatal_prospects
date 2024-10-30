@@ -28,12 +28,14 @@ draw :: proc() {
 create :: proc() {
 	// Create
 	tex_tileset = rl.LoadTexture("../../assets/images/tex_tileset.png")
+	fnt_main = rl.LoadFont("../../assets/images/fnt_romulus.png")
 
 	if DEBUG_MODE{
 		debug_create()
 	}
 	level_main_create()
 	obj_player_create()
+	cursor_create()
 }
 
 update :: proc() {
@@ -43,6 +45,7 @@ update :: proc() {
 	}
 	level_main_update()
 	obj_player_update()
+	cursor_update()
 }
 
 game_draw::proc(){
@@ -54,6 +57,7 @@ game_draw::proc(){
 	if DEBUG_MODE{
 		debug_draw()
 	}
+	cursor_draw()
 	
 }
 
@@ -62,7 +66,10 @@ game_draw_gui::proc(){
 	level_main_draw_gui()
 	obj_player_draw_gui()
 
+	hud_draw_gui()
+
 	if DEBUG_MODE{
 		debug_draw_gui()
 	}
+	cursor_draw_gui()
 }
