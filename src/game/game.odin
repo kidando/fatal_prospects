@@ -27,9 +27,10 @@ draw :: proc() {
 
 create :: proc() {
 	// Create
+	
 	tex_tileset = rl.LoadTexture("../../assets/images/tex_tileset.png")
 	fnt_main = rl.LoadFont("../../assets/images/fnt_romulus.png")
-
+	snd_revolver = rl.LoadSound("../../assets/sounds/snd_revolver.wav")
 	if DEBUG_MODE {
 		debug_create()
 	}
