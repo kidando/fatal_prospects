@@ -1,6 +1,7 @@
 package game
 
 import rl "../../raylib"
+import "core:math"
 
 update_animated_sprite :: proc(_sprite: ^AnimatedSprite) {
 	_sprite.frame_timer += rl.GetFrameTime()
@@ -53,4 +54,25 @@ draw_animated_sprite :: proc(
 		)
 	}
 
+}
+
+angle_between_vectors::proc(_source_vec:rl.Vector2, _destination_vec:rl.Vector2 )->f32{
+	return math.to_degrees_f32(
+		math.atan2_f32(
+			_destination_vec.y - _source_vec.y,
+			_destination_vec.x - _source_vec.x
+		)
+	)
+}
+
+direction_vector_normalized::proc(_source_vec:rl.Vector2, _destination_vec:rl.Vector2)->rl.Vector2{
+	return rl.Vector2Normalize(_destination_vec - _source_vec)
+}
+
+
+lengthdir_x::proc(_length:f32, _angle_degrees:f32)->f32{
+	return _length * math.cos_f32(math.to_radians_f32(_angle_degrees))
+}
+lengthdir_y::proc(_length:f32, _angle_degrees:f32)->f32{
+	return _length * math.sin_f32(math.to_radians_f32(_angle_degrees))
 }
