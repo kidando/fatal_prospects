@@ -18,6 +18,7 @@ game_init :: proc "c" (game_memory: rawptr) {
 	create_wasm_context()
 	context = wasm_context
 	context.logger = create_wasm_logger()
+	rl.InitAudioDevice()
 
 	g_state = (^GameState)(game_memory)
 	create()
