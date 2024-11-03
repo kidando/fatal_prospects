@@ -8,7 +8,8 @@ GamePlayState::enum{
 	MAIN_MENU,
 	GAME,
 	PAUSE,
-	SELECT_UPGRADE
+	UPGRADES_MENU,
+	GAME_OVER
 }
 AnimationState::enum{
 	IDLE,
@@ -19,6 +20,8 @@ ProjectileType::enum{
 	PLAYER,
 	ENEMY
 }
+
+
 // STRUCTS
 AnimatedSprite::struct{
 	source_rect:rl.Rectangle,
@@ -48,6 +51,10 @@ Projectile::struct{
 	lifespan_timer:f32
 }
 
+
+
+
+
 // CONSTANTS
 WINDOW_SIZE:rl.Vector2:{1280, 720}
 WORLD_SIZE:rl.Vector2:{640,360}
@@ -65,15 +72,30 @@ tex_tileset:rl.Texture2D
 fnt_main:rl.Font
 level:i32
 xp:i32 = 0
-xp_max:i32 = 100
+xp_max:i32 = 10
+xp_max_base:i32 = 10
 xp_total:i32 = 0
+xp_balance:i32 = 0
 
 time_sec:i32 = 0
-time_min:i32 = 15
+time_min:i32 = 10
 time_timer:f32
 time_timer_duration:f32 = 1.0
 kills:i32 = 0
 
 snd_revolver:rl.Sound
-current_state:GamePlayState = .GAME
+snd_mine:rl.Sound
+snd_level_up:rl.Sound
+snd_rock_break:rl.Sound
+snd_choose_upgrade:rl.Sound
+snd_upgrade_selected:rl.Sound
+snd_ouch:rl.Sound
+snd_player_hurt:rl.Sound
+snd_game_over:rl.Sound
+snd_strike_bell:rl.Sound
+mus_desert:rl.Music
+current_state:GamePlayState = .MAIN_MENU
+
+
+
 

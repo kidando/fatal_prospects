@@ -3,7 +3,7 @@ package game
 import rl "../../raylib"
 
 // CONSTANTS
-DEBUG_MODE::true
+DEBUG_MODE::false
 DEBUG_COLLIDER_OPACITY::100
 // VARIABLES
 debug_show_colliders:bool = false
